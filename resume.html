@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Professional Resume Screening & AI Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        /* Reset & base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #283E51, #485563);
+            color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 20px;
+        }
+
+        /* Container styling */
+        .container {
+            background: #1f2a38;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            max-width: 720px;
+            width: 100%;
+            padding: 50px 60px 70px 60px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Header */
+        .header {
+            background: #4a90e2;
+            color: #ffffff;
+            border-radius: 16px 16px 0 0;
+            padding: 30px 40px;
+            font-weight: 700;
+            font-size: 2.2rem;
+            letter-spacing: 0.06em;
+            margin: -50px -60px 40px -60px;
+            box-shadow: inset 0 -4px 10px rgba(0, 0, 0, 0.25);
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        /* Intro paragraph and bullet list */
+        .intro {
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            color: #d0d7de;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .intro ul {
+            list-style-type: disc;
+            margin: 20px auto 0;
+            text-align: left;
+            max-width: 350px;
+            color: #a7b1c2;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .intro ul li {
+            margin: 10px 0;
+        }
+
+        /* Form styles */
+        form {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        input[type="file"] {
+            border: 2px dashed #4a90e2;
+            border-radius: 14px;
+            padding: 22px 18px;
+            width: 100%;
+            max-width: 450px;
+            font-size: 1rem;
+            background: transparent;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="file"]:hover,
+        input[type="file"]:focus {
+            border-color: #6ca0ff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background: #357ABD;
+            border: none;
+            padding: 16px 48px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            border-radius: 36px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(53, 122, 189, 0.6);
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        input[type="submit"]:hover {
+            background: #2a6496;
+            box-shadow: 0 10px 28px rgba(42, 100, 150, 0.9);
+        }
+
+        /* Message & result sections */
+        .message {
+            margin-top: 28px;
+            font-size: 1.1rem;
+            color: #f87171; /* soft red */
+            font-weight: 600;
+        }
+
+        .result-section {
+            margin-top: 45px;
+            text-align: left;
+            background: #152231;
+            padding: 30px 45px;
+            border-radius: 14px;
+            box-shadow: inset 0 0 12px rgba(74, 144, 226, 0.7);
+        }
+
+        .result-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            border-bottom: 3px solid #4a90e2;
+            padding-bottom: 8px;
+            font-weight: 700;
+            color: #a3c4f3;
+            user-select: none;
+        }
+
+        .result-section p {
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            color: #cbd5e1;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .result-section ul {
+            max-width: 100%;
+            margin-left: 0;
+            list-style: inside disc;
+            font-weight: 500;
+            color: #95a6d2;
+            padding-left: 10px;
+        }
+
+        .result-section ul li {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        /* Centered text */
+        .center-text {
+            text-align: center;
+            margin-bottom: 12px;
+            font-weight: 700;
+            color: #7aaefc;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.15rem;
+            user-select: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 35px 30px 50px 30px;
+            }
+
+            .intro,
+            .result-section p,
+            .result-section ul li {
+                font-size: 1rem;
+            }
+
+            input[type="file"] {
+                max-width: 100%;
+                padding: 18px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            Professional Resume Screening & AI Analysis
+        </div>
+
+        <p class="intro">
+            Upload your resume in PDF or TXT format and instantly receive:
+        </p>
+        <ul>
+            <li>Accurate Resume Categorization tailored to industry standards</li>
+            <li>Personalized Job Recommendations aligned with your skills</li>
+            <li>Comprehensive Parsing of contact info, skills, education, and more</li>
+        </ul>
+
+        <h2 style="margin-top: 50px; margin-bottom: 30px; color: #7aaefc;">Upload Your Resume</h2>
+        <form action="/pred" method="post" enctype="multipart/form-data" novalidate>
+            <input type="file" name="resume" accept=".pdf, .txt" required aria-label="Upload your resume file" />
+            <input type="submit" value="Analyze Resume" />
+        </form>
+
+        {% if message %}
+            <p class="message center-text" role="alert">{{ message }}</p>
+        {% endif %}
+
+        {% if predicted_category %}
+        <div class="result-section" aria-live="polite">
+            <h3>Prediction Summary</h3>
+            <p><strong>Category:</strong> {{ predicted_category }}</p>
+            <p><strong>Recommended Job:</strong> {{ recommended_job }}</p>
+        </div>
+
+        <div class="result-section" aria-live="polite" style="margin-top: 25px;">
+            <h3>Extracted Profile Information</h3>
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Phone Number:</strong> {{ phone }}</p>
+            <p><strong>Email Address:</strong> {{ email }}</p>
+
+            {% if extracted_skills %}
+            <div>
+                <p class="center-text">Skills</p>
+                <ul>
+                    {% for skill in extracted_skills %}
+                    <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% else %}
+            <p class="center-text">No recognizable skills found.</p>
+            {% endif %}
+
+            {% if extracted_education %}
+            <div>
+                <p class="center-text">Education</p>
+                <ul>
+                    {% for edu in extracted_education %}
+                    <li>{{ edu }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% else %}
+            <p class="center-text">No educational qualifications detected.</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
